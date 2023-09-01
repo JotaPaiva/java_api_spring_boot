@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class TratadorDeErros {
 
     private record DadosErroValidacao(String campo, String mensagem) {
-
         public DadosErroValidacao(FieldError erro) {
             this(erro.getField(), erro.getDefaultMessage());
         }
