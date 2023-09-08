@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDateTime;
 
 public interface MedicoRepository extends JpaRepository<Medico,Long> {
+
+    // Utilizando padrão de nomenclatura do Spring. Query gerada automaticamente.
     Page<Medico> findAllByAtivoTrue(Pageable paginacao);
 
     @Query("SELECT m FROM Medico m WHERE m.ativo = TRUE AND m.especialidade = :especialidade " +
@@ -18,4 +20,5 @@ public interface MedicoRepository extends JpaRepository<Medico,Long> {
 
     @Query("SELECT m.ativo FROM Medico m WHERE m.id = :idMedico")
     Boolean findAtivoById(Long idMedico);
+
 }
